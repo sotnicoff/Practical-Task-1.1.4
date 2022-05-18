@@ -24,7 +24,7 @@ public class UserDaoHibernateImpl implements UserDao {
                 "Age TINYINT NOT NULL)";
         try (Session session = Util.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            session.createSQLQuery(sqlCommand).addEntity(User.class);
+            session.createSQLQuery(sqlCommand).addEntity(User.class).executeUpdate();
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -36,7 +36,7 @@ public class UserDaoHibernateImpl implements UserDao {
         String sqlCommand = "DROP TABLE IF EXISTS users";
         try (Session session = Util.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            session.createSQLQuery(sqlCommand).addEntity(User.class);
+            session.createSQLQuery(sqlCommand).addEntity(User.class).executeUpdate();
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
