@@ -75,9 +75,9 @@ public class UserServiceTest {
             userService.saveUser(testName, testLastName, testAge);
             List<User> userList = userService.getAllUsers();
 
-            /*if (userList.size() != 1) {
+            if (userList.size() != 1) {
                 Assert.fail("Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
-            }*/
+            }
         } catch (Exception e) {
             Assert.fail("При попытке достать всех пользователей из базы данных произошло исключение\n" + e);
         }
